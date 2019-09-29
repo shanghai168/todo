@@ -10,23 +10,37 @@ import UIKit
 
 class TodolistViewController: UITableViewController {
     
-    
+       var  itemArr = ["我的","你的","他的"]
     @IBAction func addbtnpo(_ sender: UIBarButtonItem) {
         
- 
+        
+        
+        var  textField  = UITextField()
+        
         
         let  alert =  UIAlertController(title: "添加一个新的项目", message: "", preferredStyle: .alert)
         
         let  action =  UIAlertAction(title: "添加项目", style: .default) { (action) in
+            self.itemArr.append(textField.text!)
+            self.tableView.reloadData()
             print("成功")
         }
+        
+        
+        alert.addTextField{ (alertTextField)  in
+            alertTextField.placeholder = "创建一个新项目"
+            textField = alertTextField
+            print(alertTextField.text)
+           
+        }
+        
         
         alert.addAction(action)
         present(alert,animated:true,completion: nil)
     }
     
     
-    let  itemArr = ["我的","你的","他的"]
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
