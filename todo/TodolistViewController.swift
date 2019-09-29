@@ -11,6 +11,20 @@ import UIKit
 class TodolistViewController: UITableViewController {
     
     
+    @IBAction func addbtnpo(_ sender: UIBarButtonItem) {
+        
+ 
+        
+        let  alert =  UIAlertController(title: "添加一个新的项目", message: "", preferredStyle: .alert)
+        
+        let  action =  UIAlertAction(title: "添加项目", style: .default) { (action) in
+            print("成功")
+        }
+        
+        alert.addAction(action)
+        present(alert,animated:true,completion: nil)
+    }
+    
     
     let  itemArr = ["我的","你的","他的"]
 
